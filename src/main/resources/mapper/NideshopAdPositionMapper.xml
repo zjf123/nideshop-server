@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hunhot.nideshop.dao.NideshopAdPositionMapper" >
+  <resultMap id="BaseResultMap" type="com.hunhot.nideshop.entity.NideshopAdPosition" >
+    <id column="id" property="id" jdbcType="TINYINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="width" property="width" jdbcType="SMALLINT" />
+    <result column="height" property="height" jdbcType="SMALLINT" />
+    <result column="desc" property="desc" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, width, height, desc
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Byte" >
+    select 
+    <include refid="Base_Column_List" />
+    from nideshop_ad_position
+    where id = #{id,jdbcType=TINYINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Byte" >
+    delete from nideshop_ad_position
+    where id = #{id,jdbcType=TINYINT}
+  </delete>
+  <insert id="insert" parameterType="com.hunhot.nideshop.entity.NideshopAdPosition" >
+    insert into nideshop_ad_position (id, name, width, 
+      height, desc)
+    values (#{id,jdbcType=TINYINT}, #{name,jdbcType=VARCHAR}, #{width,jdbcType=SMALLINT}, 
+      #{height,jdbcType=SMALLINT}, #{desc,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hunhot.nideshop.entity.NideshopAdPosition" >
+    insert into nideshop_ad_position
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="width != null" >
+        width,
+      </if>
+      <if test="height != null" >
+        height,
+      </if>
+      <if test="desc != null" >
+        desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=TINYINT},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="width != null" >
+        #{width,jdbcType=SMALLINT},
+      </if>
+      <if test="height != null" >
+        #{height,jdbcType=SMALLINT},
+      </if>
+      <if test="desc != null" >
+        #{desc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hunhot.nideshop.entity.NideshopAdPosition" >
+    update nideshop_ad_position
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="width != null" >
+        width = #{width,jdbcType=SMALLINT},
+      </if>
+      <if test="height != null" >
+        height = #{height,jdbcType=SMALLINT},
+      </if>
+      <if test="desc != null" >
+        desc = #{desc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=TINYINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hunhot.nideshop.entity.NideshopAdPosition" >
+    update nideshop_ad_position
+    set name = #{name,jdbcType=VARCHAR},
+      width = #{width,jdbcType=SMALLINT},
+      height = #{height,jdbcType=SMALLINT},
+      desc = #{desc,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=TINYINT}
+  </update>
+</mapper>
