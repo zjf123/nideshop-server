@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context-4.0.xsd
+                           http://www.springframework.org/schema/aop
+                           http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <import resource="spring-mybatis.xml"/>
+
+    <!-- 使用annotation 自动注册bean,并检查@Required,@Autowired的属性已被注入 -->
+    <context:component-scan base-package="com.hunhot.nideshop.*">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <context:exclude-filter type="annotation"
+                                expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
+    </context:component-scan>
+
+    <!--自动扫描,自动注册-->
+    <!--    <kraken-sucker:reference-scan/>
+        &lt;!&ndash;系统别名&ndash;&gt;
+        <framework:application name="purchase.psp.workbench.ui"/>
+        &lt;!&ndash;注册中心&ndash;&gt;
+        <kraken-common:registry address="${register.address}" protocol="zookeeper"/>-->
+    <!--cal接入	配置-->
+    <!--<bean id="calAspectBean" class="com.zhaogang.cal.aop.CalAspect"/>-->
+    <!--cat接入	配置-->
+    <!--<bean id="scatAspect" class="com.zhaogang.monitor.scat.client.ext.aop.ScatAspect"/>-->
+    <bean id="logAspect" class="com.hunhot.nideshop.util.aspect.LogAspect"/>
+    <context:annotation-config/>
+    <aop:config proxy-target-class="true">
+        <!--<aop:pointcut id="calPointcut" expression="(
+		execution(public * com.hunhot..service.*.*(..)) or execution(public * com.hunhot..rpc.*.*(..)))"/>
+-->
+        <aop:pointcut id="logPointcut"
+                      expression="(execution(public * com.hunhot..rpc.*.*(..)) or
+                      execution(* com.hunhot..service.*.*(..)) or execution(* com.hunhot..biz.*.*(..)))"/>
+        <aop:aspect ref="logAspect">
+            <aop:around method="doAround" pointcut-ref="logPointcut"/>
+        </aop:aspect>
+        <!--<aop:aspect id="calAspect" ref="calAspectBean">-->
+        <!--<aop:around method="doAroundMethodCall" pointcut-ref="calPointcut"/>-->
+        <!--</aop:aspect>-->
+    </aop:config>
+    <bean id="configBean" class="com.hunhot.nideshop.common.CustomizedPropertyConfigurer" lazy-init="true">
+        <property name="locations">
+            <list>
+                <!-- 加载配置中心文件 -->
+                <value>classpath:runtime.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <!--<import resource="spring-redis.xml"/>-->
+    <!--<import resource="classpath:com/zhaogang/cal/config/spring-cal.xml"/>-->
+
+    <!-- redis连接池的配置 -->
+    <!--    <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+            <property name="maxTotal" value="${redis.pool.maxActive}"/>
+            <property name="maxIdle" value="${redis.pool.maxIdle}"/>
+            <property name="maxWaitMillis" value="${redis.pool.maxWait}"/>
+            <property name="testOnBorrow" value="${redis.pool.testOnBorrow}"/>
+        </bean>
+
+        &lt;!&ndash; redis的连接池pool，不是必选项：timeout/password  &ndash;&gt;
+        <bean id="jedisPool" class="redis.clients.jedis.JedisPool">
+            <constructor-arg index="0" ref="jedisPoolConfig"/>
+            <constructor-arg index="1" value="${redis.host}"/>
+            <constructor-arg index="2" value="${redis.port}" type="int"/>
+            <constructor-arg index="3" value="${redis.timeout}" type="int"/>
+        </bean>-->
+
+    <!--    <bean id="jedisTemplate" class="com.zhaogang.purchase.common.utils.redis.JedisTemplate">
+            <constructor-arg index="0" ref="jedisPool"/>
+        </bean>-->
+</beans>
