@@ -19,13 +19,13 @@ public class NideshopGoods {
 
     private String goodsBrief;
 
-    private Boolean isOnSale;
+    private Integer isOnSale;
 
     private Integer addTime;
 
     private Short sortOrder;
 
-    private Boolean isDelete;
+    private Integer isDelete;
 
     private Integer attributeCategory;
 
@@ -33,7 +33,7 @@ public class NideshopGoods {
 
     private BigDecimal extraPrice;
 
-    private Boolean isNew;
+    private Integer isNew;
 
     private String goodsUnit;
 
@@ -55,11 +55,11 @@ public class NideshopGoods {
 
     private BigDecimal appExclusivePrice;
 
-    private Boolean isAppExclusive;
+    private Integer isAppExclusive;
 
-    private Boolean isLimited;
+    private Integer isLimited;
 
-    private Boolean isHot;
+    private Integer isHot;
 
     private String goodsDesc;
 
@@ -127,11 +127,11 @@ public class NideshopGoods {
         this.goodsBrief = goodsBrief;
     }
 
-    public Boolean getIsOnSale() {
+    public Integer getIsOnSale() {
         return isOnSale;
     }
 
-    public void setIsOnSale(Boolean isOnSale) {
+    public void setIsOnSale(Integer isOnSale) {
         this.isOnSale = isOnSale;
     }
 
@@ -151,11 +151,11 @@ public class NideshopGoods {
         this.sortOrder = sortOrder;
     }
 
-    public Boolean getIsDelete() {
+    public Integer getIsDelete() {
         return isDelete;
     }
 
-    public void setIsDelete(Boolean isDelete) {
+    public void setIsDelete(Integer isDelete) {
         this.isDelete = isDelete;
     }
 
@@ -183,11 +183,11 @@ public class NideshopGoods {
         this.extraPrice = extraPrice;
     }
 
-    public Boolean getIsNew() {
+    public Integer getIsNew() {
         return isNew;
     }
 
-    public void setIsNew(Boolean isNew) {
+    public void setIsNew(Integer isNew) {
         this.isNew = isNew;
     }
 
@@ -271,27 +271,27 @@ public class NideshopGoods {
         this.appExclusivePrice = appExclusivePrice;
     }
 
-    public Boolean getIsAppExclusive() {
+    public Integer getIsAppExclusive() {
         return isAppExclusive;
     }
 
-    public void setIsAppExclusive(Boolean isAppExclusive) {
+    public void setIsAppExclusive(Integer isAppExclusive) {
         this.isAppExclusive = isAppExclusive;
     }
 
-    public Boolean getIsLimited() {
+    public Integer getIsLimited() {
         return isLimited;
     }
 
-    public void setIsLimited(Boolean isLimited) {
+    public void setIsLimited(Integer isLimited) {
         this.isLimited = isLimited;
     }
 
-    public Boolean getIsHot() {
+    public Integer getIsHot() {
         return isHot;
     }
 
-    public void setIsHot(Boolean isHot) {
+    public void setIsHot(Integer isHot) {
         this.isHot = isHot;
     }
 

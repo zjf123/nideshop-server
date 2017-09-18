@@ -11,6 +11,8 @@ public interface NideshopAdMapper {
 
     NideshopAd selectByPrimaryKey(Short id);
 
+    NideshopAd selectByAdPositionId(Short adPositionId);
+
     int updateByPrimaryKeySelective(NideshopAd record);
 
     int updateByPrimaryKeyWithBLOBs(NideshopAd record);

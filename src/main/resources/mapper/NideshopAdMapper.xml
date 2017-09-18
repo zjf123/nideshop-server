@@ -28,6 +28,14 @@
     from nideshop_ad
     where id = #{id,jdbcType=SMALLINT}
   </select>
+  <select id="selectByAdPositionId" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Short" >
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from nideshop_ad
+    where ad_position_id = #{adPositionId,jdbcType=SMALLINT}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Short" >
     delete from nideshop_ad
     where id = #{id,jdbcType=SMALLINT}
