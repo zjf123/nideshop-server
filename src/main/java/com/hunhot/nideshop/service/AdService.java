@@ -17,7 +17,7 @@ public interface AdService {
 	 * @param adPositionId
 	 * @return
 	 */
-	NideshopAd selectByAdPositionId(Short adPositionId);
+	List<NideshopAd> selectByAdPositionId(Short adPositionId);
 
 
 }

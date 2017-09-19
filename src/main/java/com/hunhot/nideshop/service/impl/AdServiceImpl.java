@@ -31,7 +31,7 @@ public class AdServiceImpl implements AdService {
 	private NideshopAdMapper nideshopAdMapper;
 
 	@Override
-	public NideshopAd selectByAdPositionId(Short adPositionId) {
+	public List<NideshopAd> selectByAdPositionId(Short adPositionId) {
 		return nideshopAdMapper.selectByAdPositionId(adPositionId);
 	}
 }
