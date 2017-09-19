@@ -1,28 +1,35 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.hunhot.nideshop.dao.NideshopTopicMapper" >
-  <resultMap id="BaseResultMap" type="com.hunhot.nideshop.entity.NideshopTopic" >
-    <result column="id" property="id" jdbcType="INTEGER" />
-    <result column="title" property="title" jdbcType="VARCHAR" />
-    <result column="avatar" property="avatar" jdbcType="VARCHAR" />
-    <result column="item_pic_url" property="itemPicUrl" jdbcType="VARCHAR" />
-    <result column="subtitle" property="subtitle" jdbcType="VARCHAR" />
-    <result column="topic_category_id" property="topicCategoryId" jdbcType="INTEGER" />
-    <result column="price_info" property="priceInfo" jdbcType="DECIMAL" />
-    <result column="read_count" property="readCount" jdbcType="VARCHAR" />
-    <result column="scene_pic_url" property="scenePicUrl" jdbcType="VARCHAR" />
-    <result column="topic_template_id" property="topicTemplateId" jdbcType="INTEGER" />
-    <result column="topic_tag_id" property="topicTagId" jdbcType="INTEGER" />
-    <result column="sort_order" property="sortOrder" jdbcType="INTEGER" />
-    <result column="is_show" property="isShow" jdbcType="BIT" />
-  </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.hunhot.nideshop.entity.NideshopTopic" extends="BaseResultMap" >
-    <result column="content" property="content" jdbcType="LONGVARCHAR" />
-  </resultMap>
-  <sql id="Blob_Column_List" >
+<mapper namespace="com.hunhot.nideshop.dao.NideshopTopicMapper">
+    <resultMap id="BaseResultMap" type="com.hunhot.nideshop.entity.NideshopTopic">
+        <result column="id" property="id" jdbcType="INTEGER"/>
+        <result column="title" property="title" jdbcType="VARCHAR"/>
+        <result column="avatar" property="avatar" jdbcType="VARCHAR"/>
+        <result column="item_pic_url" property="itemPicUrl" jdbcType="VARCHAR"/>
+        <result column="subtitle" property="subtitle" jdbcType="VARCHAR"/>
+        <result column="topic_category_id" property="topicCategoryId" jdbcType="INTEGER"/>
+        <result column="price_info" property="priceInfo" jdbcType="DECIMAL"/>
+        <result column="read_count" property="readCount" jdbcType="VARCHAR"/>
+        <result column="scene_pic_url" property="scenePicUrl" jdbcType="VARCHAR"/>
+        <result column="topic_template_id" property="topicTemplateId" jdbcType="INTEGER"/>
+        <result column="topic_tag_id" property="topicTagId" jdbcType="INTEGER"/>
+        <result column="sort_order" property="sortOrder" jdbcType="INTEGER"/>
+        <result column="is_show" property="isShow" jdbcType="BIT"/>
+    </resultMap>
+    <resultMap id="ResultMapWithBLOBs" type="com.hunhot.nideshop.entity.NideshopTopic" extends="BaseResultMap">
+        <result column="content" property="content" jdbcType="LONGVARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+      id, title, avatar,
+      item_pic_url, subtitle, topic_category_id,
+      price_info, read_count, scene_pic_url,
+      topic_template_id, topic_tag_id, sort_order,
+      is_show
+    </sql>
+    <sql id="Blob_Column_List">
     content
-  </sql>
-  <insert id="insert" parameterType="com.hunhot.nideshop.entity.NideshopTopic" >
+    </sql>
+    <insert id="insert" parameterType="com.hunhot.nideshop.entity.NideshopTopic">
     insert into nideshop_topic (id, title, avatar, 
       item_pic_url, subtitle, topic_category_id, 
       price_info, read_count, scene_pic_url, 
@@ -34,95 +41,106 @@
       #{topicTemplateId,jdbcType=INTEGER}, #{topicTagId,jdbcType=INTEGER}, #{sortOrder,jdbcType=INTEGER}, 
       #{isShow,jdbcType=BIT}, #{content,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.hunhot.nideshop.entity.NideshopTopic" >
-    insert into nideshop_topic
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
-      <if test="title != null" >
-        title,
-      </if>
-      <if test="avatar != null" >
-        avatar,
-      </if>
-      <if test="itemPicUrl != null" >
-        item_pic_url,
-      </if>
-      <if test="subtitle != null" >
-        subtitle,
-      </if>
-      <if test="topicCategoryId != null" >
-        topic_category_id,
-      </if>
-      <if test="priceInfo != null" >
-        price_info,
-      </if>
-      <if test="readCount != null" >
-        read_count,
-      </if>
-      <if test="scenePicUrl != null" >
-        scene_pic_url,
-      </if>
-      <if test="topicTemplateId != null" >
-        topic_template_id,
-      </if>
-      <if test="topicTagId != null" >
-        topic_tag_id,
-      </if>
-      <if test="sortOrder != null" >
-        sort_order,
-      </if>
-      <if test="isShow != null" >
-        is_show,
-      </if>
-      <if test="content != null" >
-        content,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="title != null" >
-        #{title,jdbcType=VARCHAR},
-      </if>
-      <if test="avatar != null" >
-        #{avatar,jdbcType=VARCHAR},
-      </if>
-      <if test="itemPicUrl != null" >
-        #{itemPicUrl,jdbcType=VARCHAR},
-      </if>
-      <if test="subtitle != null" >
-        #{subtitle,jdbcType=VARCHAR},
-      </if>
-      <if test="topicCategoryId != null" >
-        #{topicCategoryId,jdbcType=INTEGER},
-      </if>
-      <if test="priceInfo != null" >
-        #{priceInfo,jdbcType=DECIMAL},
-      </if>
-      <if test="readCount != null" >
-        #{readCount,jdbcType=VARCHAR},
-      </if>
-      <if test="scenePicUrl != null" >
-        #{scenePicUrl,jdbcType=VARCHAR},
-      </if>
-      <if test="topicTemplateId != null" >
-        #{topicTemplateId,jdbcType=INTEGER},
-      </if>
-      <if test="topicTagId != null" >
-        #{topicTagId,jdbcType=INTEGER},
-      </if>
-      <if test="sortOrder != null" >
-        #{sortOrder,jdbcType=INTEGER},
-      </if>
-      <if test="isShow != null" >
-        #{isShow,jdbcType=BIT},
-      </if>
-      <if test="content != null" >
-        #{content,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
+    <insert id="insertSelective" parameterType="com.hunhot.nideshop.entity.NideshopTopic">
+        insert into nideshop_topic
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="title != null">
+                title,
+            </if>
+            <if test="avatar != null">
+                avatar,
+            </if>
+            <if test="itemPicUrl != null">
+                item_pic_url,
+            </if>
+            <if test="subtitle != null">
+                subtitle,
+            </if>
+            <if test="topicCategoryId != null">
+                topic_category_id,
+            </if>
+            <if test="priceInfo != null">
+                price_info,
+            </if>
+            <if test="readCount != null">
+                read_count,
+            </if>
+            <if test="scenePicUrl != null">
+                scene_pic_url,
+            </if>
+            <if test="topicTemplateId != null">
+                topic_template_id,
+            </if>
+            <if test="topicTagId != null">
+                topic_tag_id,
+            </if>
+            <if test="sortOrder != null">
+                sort_order,
+            </if>
+            <if test="isShow != null">
+                is_show,
+            </if>
+            <if test="content != null">
+                content,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="title != null">
+                #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="avatar != null">
+                #{avatar,jdbcType=VARCHAR},
+            </if>
+            <if test="itemPicUrl != null">
+                #{itemPicUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="subtitle != null">
+                #{subtitle,jdbcType=VARCHAR},
+            </if>
+            <if test="topicCategoryId != null">
+                #{topicCategoryId,jdbcType=INTEGER},
+            </if>
+            <if test="priceInfo != null">
+                #{priceInfo,jdbcType=DECIMAL},
+            </if>
+            <if test="readCount != null">
+                #{readCount,jdbcType=VARCHAR},
+            </if>
+            <if test="scenePicUrl != null">
+                #{scenePicUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="topicTemplateId != null">
+                #{topicTemplateId,jdbcType=INTEGER},
+            </if>
+            <if test="topicTagId != null">
+                #{topicTagId,jdbcType=INTEGER},
+            </if>
+            <if test="sortOrder != null">
+                #{sortOrder,jdbcType=INTEGER},
+            </if>
+            <if test="isShow != null">
+                #{isShow,jdbcType=BIT},
+            </if>
+            <if test="content != null">
+                #{content,jdbcType=LONGVARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <select id="selectTopicsByCondition" resultType="com.hunhot.nideshop.entity.NideshopTopic">
+        select
+        <include refid="Base_Column_List"/>,
+        <include refid="Blob_Column_List"/>
+        from nideshop_topic
+        where 1=1
+        <if test="isShow != null">
+            and is_show = #{isShow,jdbcType=INTEGER}
+        </if>
+        LIMIT #{offset}, #{limit}
+    </select>
 </mapper>

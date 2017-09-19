@@ -15,13 +15,13 @@ public class NideshopBrand {
 
     private Byte sortOrder;
 
-    private Boolean isShow;
+    private Integer isShow;
 
     private BigDecimal floorPrice;
 
     private String appListPicUrl;
 
-    private Boolean isNew;
+    private Integer isNew;
 
     private String newPicUrl;
 
@@ -75,11 +75,11 @@ public class NideshopBrand {
         this.sortOrder = sortOrder;
     }
 
-    public Boolean getIsShow() {
+    public Integer getIsShow() {
         return isShow;
     }
 
-    public void setIsShow(Boolean isShow) {
+    public void setIsShow(Integer isShow) {
         this.isShow = isShow;
     }
 
@@ -99,11 +99,11 @@ public class NideshopBrand {
         this.appListPicUrl = appListPicUrl;
     }
 
-    public Boolean getIsNew() {
+    public Integer getIsNew() {
         return isNew;
     }
 
-    public void setIsNew(Boolean isNew) {
+    public void setIsNew(Integer isNew) {
         this.isNew = isNew;
     }
 

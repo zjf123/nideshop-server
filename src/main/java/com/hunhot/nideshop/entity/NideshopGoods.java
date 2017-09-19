@@ -1,6 +1,7 @@
 package com.hunhot.nideshop.entity;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 public class NideshopGoods {
     private Integer id;
@@ -62,6 +63,8 @@ public class NideshopGoods {
     private Integer isHot;
 
     private String goodsDesc;
+
+    private List<Integer> categoryIdList;
 
     public Integer getId() {
         return id;
@@ -301,5 +304,13 @@ public class NideshopGoods {
 
     public void setGoodsDesc(String goodsDesc) {
         this.goodsDesc = goodsDesc;
+    }
+
+    public List<Integer> getCategoryIdList() {
+        return categoryIdList;
+    }
+
+    public void setCategoryIdList(List<Integer> categoryIdList) {
+        this.categoryIdList = categoryIdList;
     }
 }

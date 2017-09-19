@@ -5,6 +5,8 @@ public class NideshopCategory {
 
     private String name;
 
+    private String nameSign;
+
     private String keywords;
 
     private String frontDesc;
@@ -45,6 +47,14 @@ public class NideshopCategory {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getNameSign() {
+        return nameSign;
+    }
+
+    public void setNameSign(String nameSign) {
+        this.nameSign = nameSign;
     }
 
     public String getKeywords() {
