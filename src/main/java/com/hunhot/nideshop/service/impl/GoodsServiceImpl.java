@@ -23,8 +23,14 @@ public class GoodsServiceImpl implements GoodsService {
 	private NideshopGoodsMapper nideshopGoodsMapper;
 
 
+
 	@Override
 	public List<NideshopGoods> selectGoodsByCondition(NideshopGoods goods, int offset, int limit) {
 		return nideshopGoodsMapper.selectGoodsByCondition(goods,offset,limit);
+	}
+
+	@Override
+	public NideshopGoods selectGoodsById(int id) {
+		return nideshopGoodsMapper.selectByPrimaryKey(id);
 	}
 }

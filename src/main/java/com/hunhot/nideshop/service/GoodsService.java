@@ -20,4 +20,5 @@ public interface GoodsService {
 	List<NideshopGoods> selectGoodsByCondition(NideshopGoods goods,int offset, int limit);
 
 
+	NideshopGoods selectGoodsById(int id);
 }
