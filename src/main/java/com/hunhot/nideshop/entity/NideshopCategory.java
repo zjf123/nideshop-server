@@ -1,6 +1,11 @@
 package com.hunhot.nideshop.entity;
 
+import java.util.List;
+
 public class NideshopCategory extends BaseEntity{
+
+    private List<NideshopCategory> subCategoryList;
+
     private Integer id;
 
     private String name;
@@ -32,6 +37,14 @@ public class NideshopCategory extends BaseEntity{
     private Integer type;
 
     private String frontName;
+
+    public List<NideshopCategory> getSubCategoryList() {
+        return subCategoryList;
+    }
+
+    public void setSubCategoryList(List<NideshopCategory> subCategoryList) {
+        this.subCategoryList = subCategoryList;
+    }
 
     public Integer getId() {
         return id;

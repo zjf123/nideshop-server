@@ -31,4 +31,8 @@ public class CategoryServiceImpl implements CategoryService {
 		category.setLimit(limit);
 		return nideshopCategoryMapper.selectCategoryIdsByCondition(category);
 	}
+
+	public NideshopCategory selectCategoryById(int categoryId){
+		return nideshopCategoryMapper.selectByPrimaryKey(categoryId);
+	}
 }

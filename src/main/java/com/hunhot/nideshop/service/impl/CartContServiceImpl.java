@@ -56,7 +56,7 @@ public class CartContServiceImpl implements CartContService {
 
             // 查找商品的图片
             NideshopGoods goodsList = goodsService.selectGoodsById(cartItem.getGoodsId());
-            if(null!=goodsList && StringUtils.isNotEmpty(goodsList.getListPicUrl())){
+            if (null != goodsList && StringUtils.isNotEmpty(goodsList.getListPicUrl())) {
                 cartItem.setListPicUrl(goodsList.getListPicUrl());
             }
         }
@@ -65,12 +65,12 @@ public class CartContServiceImpl implements CartContService {
         result.setData(new HashMap());
         result.getData().put("cartList", cartList);
 
-        Map<String,Object> cartTotal = new HashMap<>();
-        cartTotal.put("goodsCount",goodsCount);
-        cartTotal.put("goodsAmount",goodsAmount);
-        cartTotal.put("checkedGoodsCount",checkedGoodsCount);
-        cartTotal.put("checkedGoodsAmount",checkedGoodsAmount);
-        result.getData().put("cartTotal",cartTotal);
+        Map<String, Object> cartTotal = new HashMap<>();
+        cartTotal.put("goodsCount", goodsCount);
+        cartTotal.put("goodsAmount", goodsAmount);
+        cartTotal.put("checkedGoodsCount", checkedGoodsCount);
+        cartTotal.put("checkedGoodsAmount", checkedGoodsAmount);
+        result.getData().put("cartTotal", cartTotal);
 
         return null;
     }

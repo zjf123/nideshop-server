@@ -26,4 +26,11 @@ public interface CategoryService {
      * @return
      */
 	List<Integer> selectCategoryIdsByCondition(NideshopCategory category, int offset, int limit);
+
+	/**
+	 * 根据ID查询category
+	 * @param categoryId
+	 * @return
+	 */
+	NideshopCategory selectCategoryById(int categoryId);
 }

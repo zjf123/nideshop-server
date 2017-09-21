@@ -17,6 +17,16 @@
     from nideshop_goods_specification
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="selectNideshopGoodsSpecificationByCondition"
+          resultType="com.hunhot.nideshop.entity.NideshopGoodsSpecification">
+    select
+    <include refid="Base_Column_List" />,s.NAME
+    from nideshop_goods_specification gs,specification s
+    where gs.specification_id = s.id
+    <if test="goodsId != null" >
+      and gs.goods_id = #{goodsId,jdbcType=INTEGER}
+    </if>
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from nideshop_goods_specification
     where id = #{id,jdbcType=INTEGER}
