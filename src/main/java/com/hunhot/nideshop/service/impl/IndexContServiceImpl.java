@@ -7,10 +7,10 @@ import com.hunhot.nideshop.entity.NideshopGoods;
 import com.hunhot.nideshop.entity.NideshopTopic;
 import com.hunhot.nideshop.service.AdService;
 import com.hunhot.nideshop.service.BrandService;
+import com.hunhot.nideshop.service.CartContService;
 import com.hunhot.nideshop.service.CategoryService;
 import com.hunhot.nideshop.service.ChannelService;
 import com.hunhot.nideshop.service.GoodsService;
-import com.hunhot.nideshop.service.IndexContService;
 import com.hunhot.nideshop.service.TopicService;
 import org.apache.commons.collections.CollectionUtils;
 import org.slf4j.Logger;
@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class IndexContServiceImpl implements IndexContService {
+public class IndexContServiceImpl implements CartContService {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -44,6 +44,11 @@ public class IndexContServiceImpl implements IndexContService {
 
     @Override
     public Result<HashMap> getIndexData() {
+        return getCart();
+    }
+
+    @Override
+    public Result<HashMap> getCart() {
         Result<HashMap> result = new Result<HashMap>();
         result.setData(new HashMap());
 
