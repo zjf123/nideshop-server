@@ -7,20 +7,27 @@ public class BaseEntity {
 
     private int offset;
     private int limit;
+	private int offset;
 
-    public int getOffset() {
-        return offset;
-    }
+	private int limit;
 
-    public void setOffset(int offset) {
-        this.offset = offset;
-    }
+	public int getOffset() {
+		return offset;
+	}
 
-    public int getLimit() {
-        return limit;
-    }
+	public void setOffset(int offset) {
+		this.offset = offset;
+	}
+
+	public int getLimit() {
+		return limit;
+	}
 
     public void setLimit(int limit) {
         this.limit = limit;
     }
+	public void setLimit(int limit) {
+		this.limit = limit;
+	}
+
 }

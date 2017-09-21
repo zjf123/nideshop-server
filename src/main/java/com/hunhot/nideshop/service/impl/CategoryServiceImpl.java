@@ -21,10 +21,14 @@ public class CategoryServiceImpl implements CategoryService {
 
 	@Override
 	public List<NideshopCategory> selectCategorysByCondition(NideshopCategory category, int offset, int limit) {
-		return nideshopCategoryMapper.selectCategorysByCondition(category,offset,limit);
+		category.setOffset(offset);
+		category.setLimit(limit);
+		return nideshopCategoryMapper.selectCategorysByCondition(category);
 	}
 
 	public List<Integer> selectCategoryIdsByCondition(NideshopCategory category, int offset, int limit){
-		return nideshopCategoryMapper.selectCategoryIdsByCondition(category,offset,limit);
+		category.setOffset(offset);
+		category.setLimit(limit);
+		return nideshopCategoryMapper.selectCategoryIdsByCondition(category);
 	}
 }

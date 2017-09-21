@@ -1,7 +1,6 @@
 package com.hunhot.nideshop.dao;
 
 import com.hunhot.nideshop.entity.NideshopBrand;
-import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -14,7 +13,7 @@ public interface NideshopBrandMapper {
 
     NideshopBrand selectByPrimaryKey(Integer id);
 
-    List<NideshopBrand> selectBrandsByCondition(NideshopBrand brand, @Param("offset") int offset, @Param("limit") int limit);
+    List<NideshopBrand> selectBrandsByCondition(NideshopBrand brand);
 
 
     int updateByPrimaryKeySelective(NideshopBrand record);

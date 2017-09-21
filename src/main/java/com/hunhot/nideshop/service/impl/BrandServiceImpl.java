@@ -21,6 +21,8 @@ public class BrandServiceImpl implements BrandService {
 
 	@Override
 	public List<NideshopBrand> selectBrandsByCondition(NideshopBrand brand, int offset, int limit) {
-		return nideshopBrandMapper.selectBrandsByCondition(brand,offset,limit);
+		brand.setOffset(offset);
+		brand.setLimit(limit);
+		return nideshopBrandMapper.selectBrandsByCondition(brand);
 	}
 }

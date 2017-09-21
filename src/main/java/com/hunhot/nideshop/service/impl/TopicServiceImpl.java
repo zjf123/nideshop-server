@@ -21,6 +21,8 @@ public class TopicServiceImpl implements TopicService {
 
 	@Override
 	public List<NideshopTopic> selectTopicsByCondition(NideshopTopic topic, int offset, int limit) {
-		return nideshopTopicMapper.selectTopicsByCondition(topic,offset,limit);
+		topic.setOffset(offset);
+		topic.setLimit(limit);
+		return nideshopTopicMapper.selectTopicsByCondition(topic);
 	}
 }

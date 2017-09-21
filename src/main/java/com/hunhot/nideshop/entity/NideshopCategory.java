@@ -1,6 +1,6 @@
 package com.hunhot.nideshop.entity;
 
-public class NideshopCategory {
+public class NideshopCategory extends BaseEntity{
     private Integer id;
 
     private String name;

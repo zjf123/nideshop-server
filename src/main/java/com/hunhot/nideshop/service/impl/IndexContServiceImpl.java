@@ -12,11 +12,13 @@ import com.hunhot.nideshop.service.ChannelService;
 import com.hunhot.nideshop.service.GoodsService;
 import com.hunhot.nideshop.service.IndexContService;
 import com.hunhot.nideshop.service.TopicService;
+import org.apache.commons.collections.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -43,6 +45,7 @@ public class IndexContServiceImpl implements IndexContService {
     @Override
     public Result<HashMap> getIndexData() {
         Result<HashMap> result = new Result<HashMap>();
+        result.setData(new HashMap());
 
         result.getData().put("banner", adService.selectByAdPositionId((short) 1));
         result.getData().put("channel", channelService.selectAllChannels());
@@ -69,14 +72,18 @@ public class IndexContServiceImpl implements IndexContService {
         for (NideshopCategory categoryItem : categoryList) {
             NideshopCategory categoryTmp = new NideshopCategory();
             categoryTmp.setParentId(categoryItem.getId());
-            List<Integer> childCategoryIds = categoryService.selectCategoryIdsByCondition(category, 1, 100);
+            List<Integer> childCategoryIds = categoryService.selectCategoryIdsByCondition(categoryTmp, 1, 100);
+
+            newCategoryList.put("id",category.getId());
+            newCategoryList.put("name",category.getName());
+            if(CollectionUtils.isEmpty(childCategoryIds)){
+                newCategoryList.put("goodsList",new ArrayList<NideshopGoods>());
+                continue;
+            }
 
             NideshopGoods goods = new NideshopGoods();
             goods.setCategoryIdList(childCategoryIds);
             List<NideshopGoods> categoryGoods = goodsService.selectGoodsByCondition(goods, 1, 7);
-
-            newCategoryList.put("id",category.getId());
-            newCategoryList.put("name",category.getName());
             newCategoryList.put("goodsList",categoryGoods);
         }
         result.getData().put("categoryList", newCategoryList);

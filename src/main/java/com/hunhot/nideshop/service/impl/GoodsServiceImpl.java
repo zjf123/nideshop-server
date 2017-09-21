@@ -1,10 +1,7 @@
 package com.hunhot.nideshop.service.impl;
 
-import com.hunhot.nideshop.dao.NideshopAdMapper;
 import com.hunhot.nideshop.dao.NideshopGoodsMapper;
-import com.hunhot.nideshop.entity.NideshopAd;
 import com.hunhot.nideshop.entity.NideshopGoods;
-import com.hunhot.nideshop.service.AdService;
 import com.hunhot.nideshop.service.GoodsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,7 +23,9 @@ public class GoodsServiceImpl implements GoodsService {
 
 	@Override
 	public List<NideshopGoods> selectGoodsByCondition(NideshopGoods goods, int offset, int limit) {
-		return nideshopGoodsMapper.selectGoodsByCondition(goods,offset,limit);
+		goods.setOffset(offset);
+		goods.setLimit(limit);
+		return nideshopGoodsMapper.selectGoodsByCondition(goods);
 	}
 
 	@Override

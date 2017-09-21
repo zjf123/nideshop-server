@@ -38,9 +38,9 @@
         </if>
         <if test="name != null">
             <if test="nameSign != null">
-                AND name #{nameSign} #{name,jdbcType=VARCHAR}
+                AND name ${nameSign} #{name,jdbcType=VARCHAR}
             </if>
-            <if test="nameSign != null">
+            <if test="nameSign == null">
                 AND name = #{name,jdbcType=VARCHAR}
             </if>
         </if>
@@ -58,9 +58,9 @@
         </if>
         <if test="name != null">
             <if test="nameSign != null">
-                AND name #{nameSign} #{name,jdbcType=VARCHAR}
+                AND name ${nameSign} #{name,jdbcType=VARCHAR}
             </if>
-            <if test="nameSign != null">
+            <if test="nameSign == null">
                 AND name = #{name,jdbcType=VARCHAR}
             </if>
         </if>
