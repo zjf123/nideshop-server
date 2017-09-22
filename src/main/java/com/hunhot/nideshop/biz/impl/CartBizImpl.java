@@ -1,11 +1,8 @@
-package com.hunhot.nideshop.service.impl;
+package com.hunhot.nideshop.biz.impl;
 
-import com.hunhot.nideshop.dao.NideshopBrandMapper;
 import com.hunhot.nideshop.dao.NideshopCartMapper;
-import com.hunhot.nideshop.entity.NideshopBrand;
 import com.hunhot.nideshop.entity.NideshopCart;
-import com.hunhot.nideshop.service.BrandService;
-import com.hunhot.nideshop.service.CartService;
+import com.hunhot.nideshop.biz.CartBiz;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class CartServiceImpl implements CartService {
+public class CartBizImpl implements CartBiz {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 

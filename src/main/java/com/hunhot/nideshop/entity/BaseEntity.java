@@ -5,8 +5,6 @@ package com.hunhot.nideshop.entity;
  */
 public class BaseEntity {
 
-    private int offset;
-    private int limit;
 	private int offset;
 
 	private int limit;
@@ -26,8 +24,5 @@ public class BaseEntity {
     public void setLimit(int limit) {
         this.limit = limit;
     }
-	public void setLimit(int limit) {
-		this.limit = limit;
-	}
 
 }
