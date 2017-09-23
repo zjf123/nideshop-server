@@ -5,7 +5,8 @@ package com.hunhot.nideshop.entity;
  */
 public class BaseEntity {
 
-    private int offset;
+	private int offset;
+
 	private int limit;
 
 	public int getOffset() {

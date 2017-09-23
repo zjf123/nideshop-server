@@ -1,11 +1,17 @@
 package com.hunhot.nideshop.service.impl;
 
+import com.hunhot.nideshop.biz.AdBiz;
+import com.hunhot.nideshop.biz.BrandBiz;
+import com.hunhot.nideshop.biz.CategoryBiz;
+import com.hunhot.nideshop.biz.ChannelBiz;
+import com.hunhot.nideshop.biz.GoodsBiz;
+import com.hunhot.nideshop.biz.TopicBiz;
 import com.hunhot.nideshop.dto.Result;
 import com.hunhot.nideshop.entity.NideshopBrand;
 import com.hunhot.nideshop.entity.NideshopCategory;
 import com.hunhot.nideshop.entity.NideshopGoods;
 import com.hunhot.nideshop.entity.NideshopTopic;
-import com.hunhot.nideshop.service.*;
+import com.hunhot.nideshop.service.IndexContService;
 import org.apache.commons.collections.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,17 +30,17 @@ public class IndexContServiceImpl implements IndexContService {
 
     // 注入Service依赖
     @Autowired
-    private AdService adService;
+    private AdBiz adService;
     @Autowired
-    private ChannelService channelService;
+    private ChannelBiz channelService;
     @Autowired
-    private GoodsService goodsService;
+    private GoodsBiz goodsService;
     @Autowired
-    private BrandService brandService;
+    private BrandBiz brandService;
     @Autowired
-    private TopicService topicService;
+    private TopicBiz topicService;
     @Autowired
-    private CategoryService categoryService;
+    private CategoryBiz categoryService;
 
     @Override
     public Result<HashMap> getIndexData() {

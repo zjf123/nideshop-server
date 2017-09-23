@@ -1,6 +1,8 @@
 package com.hunhot.nideshop.entity;
 
-public class NideshopCollect {
+import java.math.BigDecimal;
+
+public class NideshopCollect extends BaseEntity{
     private Integer id;
 
     private Integer userId;
@@ -12,6 +14,44 @@ public class NideshopCollect {
     private Boolean isAttention;
 
     private Integer typeId;
+
+    //goods start
+    private String listPicUrl;
+    private String name;
+    private BigDecimal retailPrice;
+    private String goodsBrief;
+
+    public String getListPicUrl() {
+        return listPicUrl;
+    }
+
+    public void setListPicUrl(String listPicUrl) {
+        this.listPicUrl = listPicUrl;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public BigDecimal getRetailPrice() {
+        return retailPrice;
+    }
+
+    public void setRetailPrice(BigDecimal retailPrice) {
+        this.retailPrice = retailPrice;
+    }
+
+    public String getGoodsBrief() {
+        return goodsBrief;
+    }
+
+    public void setGoodsBrief(String goodsBrief) {
+        this.goodsBrief = goodsBrief;
+    }
 
     public Integer getId() {
         return id;

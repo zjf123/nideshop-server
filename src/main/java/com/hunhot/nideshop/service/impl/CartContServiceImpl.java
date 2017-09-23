@@ -1,9 +1,11 @@
 package com.hunhot.nideshop.service.impl;
 
+import com.hunhot.nideshop.biz.CartBiz;
+import com.hunhot.nideshop.biz.GoodsBiz;
 import com.hunhot.nideshop.dto.Result;
-import com.hunhot.nideshop.entity.*;
-import com.hunhot.nideshop.service.*;
-import org.apache.commons.collections.CollectionUtils;
+import com.hunhot.nideshop.entity.NideshopCart;
+import com.hunhot.nideshop.entity.NideshopGoods;
+import com.hunhot.nideshop.service.CartContService;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,7 +16,6 @@ import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 @Service
 public class CartContServiceImpl implements CartContService {
@@ -23,9 +24,9 @@ public class CartContServiceImpl implements CartContService {
 
     // 注入Service依赖
     @Autowired
-    private CartService cartService;
+    private CartBiz cartService;
     @Autowired
-    private GoodsService goodsService;
+    private GoodsBiz goodsService;
 
     @Override
     public Result<HashMap> getIndexData() {
@@ -72,6 +73,6 @@ public class CartContServiceImpl implements CartContService {
         cartTotal.put("checkedGoodsAmount", checkedGoodsAmount);
         result.getData().put("cartTotal", cartTotal);
 
-        return null;
+        return result;
     }
 }
