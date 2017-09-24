@@ -28,7 +28,7 @@
     from nideshop_ad
     where id = #{id,jdbcType=SMALLINT}
   </select>
-  <select id="selectByAdPositionId" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Short" >
+  <select id="selectByAdPositionId" resultType="com.hunhot.nideshop.entity.NideshopAd" parameterType="java.lang.Short" >
     select
     <include refid="Base_Column_List" />
     ,

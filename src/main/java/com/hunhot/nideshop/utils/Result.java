@@ -1,4 +1,9 @@
-package com.hunhot.nideshop.dto;
+package com.hunhot.nideshop.utils;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 封装json对象，所有返回结果都使用它
@@ -9,7 +14,13 @@ public class Result<T> {
 
 	private T data;// 成功时返回的数据
 
+	private Map<String,Object> dataMap = new HashMap<>();
+
+	private List<T> dataList = new ArrayList<T>();
+
 	private String error;// 错误信息
+
+	private int errno;
 
 	public Result() {
 	}
@@ -24,6 +35,14 @@ public class Result<T> {
 	public Result(boolean success, String error) {
 		this.success = success;
 		this.error = error;
+	}
+
+	public int getErrno() {
+		return errno;
+	}
+
+	public void setErrno(int errno) {
+		this.errno = errno;
 	}
 
 	public boolean isSuccess() {
@@ -48,6 +67,22 @@ public class Result<T> {
 
 	public void setError(String error) {
 		this.error = error;
+	}
+
+	public Map<String, Object> getDataMap() {
+		return dataMap;
+	}
+
+	public void setDataMap(Map<String, Object> dataMap) {
+		this.dataMap = dataMap;
+	}
+
+	public List<T> getDataList() {
+		return dataList;
+	}
+
+	public void setDataList(List<T> dataList) {
+		this.dataList = dataList;
 	}
 
 	@Override

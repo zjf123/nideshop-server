@@ -2,7 +2,7 @@ package com.hunhot.nideshop.entity;
 
 import java.math.BigDecimal;
 
-public class NideshopTopic {
+public class NideshopTopic extends BaseEntity {
     private Integer id;
 
     private String title;

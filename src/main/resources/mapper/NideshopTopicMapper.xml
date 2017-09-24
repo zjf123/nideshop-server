@@ -141,6 +141,8 @@
         <if test="isShow != null">
             and is_show = #{isShow,jdbcType=INTEGER}
         </if>
-        LIMIT #{offset}, #{limit}
+        <if test="offset != 0 and limit != 0">
+            LIMIT #{offset}, #{limit}
+        </if>
     </select>
 </mapper>

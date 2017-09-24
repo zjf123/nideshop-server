@@ -1,6 +1,7 @@
 package com.hunhot.nideshop.dao;
 
 import com.hunhot.nideshop.entity.NideshopGoodsSpecification;
+import com.sun.tools.javac.util.List;
 
 public interface NideshopGoodsSpecificationMapper {
     int deleteByPrimaryKey(Integer id);
@@ -10,6 +11,8 @@ public interface NideshopGoodsSpecificationMapper {
     int insertSelective(NideshopGoodsSpecification record);
 
     NideshopGoodsSpecification selectByPrimaryKey(Integer id);
+
+    List<NideshopGoodsSpecification> selectNideshopGoodsSpecificationByCondition(NideshopGoodsSpecification goodsSpecification);
 
     int updateByPrimaryKeySelective(NideshopGoodsSpecification record);
 

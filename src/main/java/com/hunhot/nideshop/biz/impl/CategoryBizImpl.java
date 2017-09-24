@@ -1,8 +1,8 @@
-package com.hunhot.nideshop.service.impl;
+package com.hunhot.nideshop.biz.impl;
 
 import com.hunhot.nideshop.dao.NideshopCategoryMapper;
 import com.hunhot.nideshop.entity.NideshopCategory;
-import com.hunhot.nideshop.service.CategoryService;
+import com.hunhot.nideshop.biz.CategoryBiz;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class CategoryServiceImpl implements CategoryService {
+public class CategoryBizImpl implements CategoryBiz {
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -21,10 +21,18 @@ public class CategoryServiceImpl implements CategoryService {
 
 	@Override
 	public List<NideshopCategory> selectCategorysByCondition(NideshopCategory category, int offset, int limit) {
-		return nideshopCategoryMapper.selectCategorysByCondition(category,offset,limit);
+		category.setOffset(offset);
+		category.setLimit(limit);
+		return nideshopCategoryMapper.selectCategorysByCondition(category);
 	}
 
 	public List<Integer> selectCategoryIdsByCondition(NideshopCategory category, int offset, int limit){
-		return nideshopCategoryMapper.selectCategoryIdsByCondition(category,offset,limit);
+		category.setOffset(offset);
+		category.setLimit(limit);
+		return nideshopCategoryMapper.selectCategoryIdsByCondition(category);
+	}
+
+	public NideshopCategory selectCategoryById(int categoryId){
+		return nideshopCategoryMapper.selectByPrimaryKey(categoryId);
 	}
 }

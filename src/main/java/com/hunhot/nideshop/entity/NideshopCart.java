@@ -2,7 +2,7 @@ package com.hunhot.nideshop.entity;
 
 import java.math.BigDecimal;
 
-public class NideshopCart {
+public class NideshopCart extends BaseEntity{
     private Integer id;
 
     private Integer userId;
@@ -25,7 +25,7 @@ public class NideshopCart {
 
     private String goodsSpecifitionIds;
 
-    private Boolean checked;
+    private Integer checked;
 
     private String listPicUrl;
 
@@ -119,11 +119,11 @@ public class NideshopCart {
         this.goodsSpecifitionIds = goodsSpecifitionIds;
     }
 
-    public Boolean getChecked() {
+    public Integer getChecked() {
         return checked;
     }
 
-    public void setChecked(Boolean checked) {
+    public void setChecked(Integer checked) {
         this.checked = checked;
     }
 

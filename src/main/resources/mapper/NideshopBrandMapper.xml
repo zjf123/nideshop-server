@@ -25,7 +25,7 @@
     from nideshop_brand
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <select id="selectBrandsByCondition" resultType="com.hunhot.nideshop.entity.NideshopBrand">
+  <select id="selectBrandsByCondition" parameterType="com.hunhot.nideshop.entity.NideshopBrand" resultType="com.hunhot.nideshop.entity.NideshopBrand">
     select
     <include refid="Base_Column_List" />
     from nideshop_brand
@@ -36,7 +36,9 @@
     <if test="isShow != null">
       and is_show = #{isShow,jdbcType=INTEGER}
     </if>
-    LIMIT #{offset}, #{limit}
+    <if test="offset != 0 and limit != 0">
+      LIMIT #{offset}, #{limit}
+    </if>
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from nideshop_brand

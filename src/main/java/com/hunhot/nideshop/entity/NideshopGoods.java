@@ -3,7 +3,7 @@ package com.hunhot.nideshop.entity;
 import java.math.BigDecimal;
 import java.util.List;
 
-public class NideshopGoods {
+public class NideshopGoods extends BaseEntity {
     private Integer id;
 
     private Integer categoryId;

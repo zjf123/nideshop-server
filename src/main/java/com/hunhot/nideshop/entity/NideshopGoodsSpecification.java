@@ -1,6 +1,6 @@
 package com.hunhot.nideshop.entity;
 
-public class NideshopGoodsSpecification {
+public class NideshopGoodsSpecification extends  BaseEntity{
     private Integer id;
 
     private Integer goodsId;
@@ -10,6 +10,16 @@ public class NideshopGoodsSpecification {
     private String value;
 
     private String picUrl;
+
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public Integer getId() {
         return id;

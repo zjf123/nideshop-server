@@ -1,7 +1,7 @@
 package com.hunhot.nideshop.web;
 
-import com.hunhot.nideshop.dto.AppointExecution;
-import com.hunhot.nideshop.dto.Result;
+import com.hunhot.nideshop.utils.AppointExecution;
+import com.hunhot.nideshop.utils.Result;
 import com.hunhot.nideshop.entity.Book;
 import com.hunhot.nideshop.exception.NoNumberException;
 import com.hunhot.nideshop.exception.RepeatAppointException;
