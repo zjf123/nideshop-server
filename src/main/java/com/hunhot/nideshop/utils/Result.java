@@ -1,4 +1,4 @@
-package com.hunhot.nideshop.dto;
+package com.hunhot.nideshop.utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,6 +20,8 @@ public class Result<T> {
 
 	private String error;// 错误信息
 
+	private int errno;
+
 	public Result() {
 	}
 
@@ -33,6 +35,14 @@ public class Result<T> {
 	public Result(boolean success, String error) {
 		this.success = success;
 		this.error = error;
+	}
+
+	public int getErrno() {
+		return errno;
+	}
+
+	public void setErrno(int errno) {
+		this.errno = errno;
 	}
 
 	public boolean isSuccess() {

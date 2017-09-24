@@ -1,7 +1,7 @@
 package com.hunhot.nideshop.service.impl;
 
 import com.hunhot.nideshop.biz.BrandBiz;
-import com.hunhot.nideshop.dto.Result;
+import com.hunhot.nideshop.utils.Result;
 import com.hunhot.nideshop.entity.NideshopBrand;
 import com.hunhot.nideshop.service.BrandContService;
 import com.hunhot.nideshop.utils.PageCountUtils;

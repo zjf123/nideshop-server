@@ -2,7 +2,7 @@ package com.hunhot.nideshop.service.impl;
 
 import com.hunhot.nideshop.dao.AppointmentDao;
 import com.hunhot.nideshop.dao.BookDao;
-import com.hunhot.nideshop.dto.AppointExecution;
+import com.hunhot.nideshop.utils.AppointExecution;
 import com.hunhot.nideshop.entity.Appointment;
 import com.hunhot.nideshop.entity.Book;
 import com.hunhot.nideshop.enums.AppointStateEnum;

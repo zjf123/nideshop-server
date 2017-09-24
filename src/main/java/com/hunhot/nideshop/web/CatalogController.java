@@ -1,14 +1,12 @@
 package com.hunhot.nideshop.web;
 
-import com.hunhot.nideshop.dto.Result;
-import com.hunhot.nideshop.service.CartContService;
+import com.hunhot.nideshop.utils.Result;
 import com.hunhot.nideshop.service.CatalogContService;
 import com.hunhot.nideshop.service.CategoryService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 

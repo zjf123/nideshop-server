@@ -1,13 +1,10 @@
 package com.hunhot.nideshop.service.impl;
 
-import static org.junit.Assert.fail;
-
+import com.hunhot.nideshop.BaseTest;
+import com.hunhot.nideshop.service.BookService;
+import com.hunhot.nideshop.utils.AppointExecution;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import com.hunhot.nideshop.BaseTest;
-import com.hunhot.nideshop.dto.AppointExecution;
-import com.hunhot.nideshop.service.BookService;
 
 public class BookServiceImplTest extends BaseTest {
 

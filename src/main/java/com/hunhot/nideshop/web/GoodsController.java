@@ -1,8 +1,7 @@
 package com.hunhot.nideshop.web;
 
-import com.hunhot.nideshop.dto.Result;
+import com.hunhot.nideshop.utils.Result;
 import com.hunhot.nideshop.service.GoodsContService;
-import com.hunhot.nideshop.service.IndexContService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

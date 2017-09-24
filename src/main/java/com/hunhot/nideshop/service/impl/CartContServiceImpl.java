@@ -2,7 +2,7 @@ package com.hunhot.nideshop.service.impl;
 
 import com.hunhot.nideshop.biz.CartBiz;
 import com.hunhot.nideshop.biz.GoodsBiz;
-import com.hunhot.nideshop.dto.Result;
+import com.hunhot.nideshop.utils.Result;
 import com.hunhot.nideshop.entity.NideshopCart;
 import com.hunhot.nideshop.entity.NideshopGoods;
 import com.hunhot.nideshop.service.CartContService;

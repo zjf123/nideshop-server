@@ -1,6 +1,6 @@
 package com.hunhot.nideshop.service;
 
-import com.hunhot.nideshop.dto.Result;
+import com.hunhot.nideshop.utils.Result;
 
 import java.util.HashMap;
 

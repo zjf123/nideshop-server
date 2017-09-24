@@ -1,21 +1,17 @@
 package com.hunhot.nideshop.service.impl;
 
-import com.hunhot.nideshop.dto.Result;
-import com.hunhot.nideshop.entity.NideshopBrand;
+import com.hunhot.nideshop.biz.CategoryBiz;
+import com.hunhot.nideshop.utils.Result;
 import com.hunhot.nideshop.entity.NideshopCategory;
-import com.hunhot.nideshop.entity.NideshopGoods;
-import com.hunhot.nideshop.entity.NideshopTopic;
-import com.hunhot.nideshop.service.*;
+import com.hunhot.nideshop.service.CatalogContService;
 import org.apache.commons.collections.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class CatalogContServiceImpl implements CatalogContService {
@@ -24,7 +20,7 @@ public class CatalogContServiceImpl implements CatalogContService {
 
     // 注入Service依赖
     @Autowired
-    private CategoryService categoryService;
+    private CategoryBiz categoryBiz;
 
     @Override
     public Result<HashMap> getIndexData(int categoryId) {
@@ -33,11 +29,11 @@ public class CatalogContServiceImpl implements CatalogContService {
 
         NideshopCategory category = new NideshopCategory();
         category.setParentId(0);
-        List<NideshopCategory> data = categoryService.selectCategorysByCondition(category, 1, 10);
+        List<NideshopCategory> data = categoryBiz.selectCategorysByCondition(category, 1, 10);
 
         NideshopCategory currentCategory = null;
         if (categoryId != 0) {
-            currentCategory = categoryService.selectCategoryById(categoryId);
+            currentCategory = categoryBiz.selectCategoryById(categoryId);
         }
 
         if (null == currentCategory && CollectionUtils.isNotEmpty(data)) {
@@ -48,7 +44,7 @@ public class CatalogContServiceImpl implements CatalogContService {
         if (null!=currentCategory&&0!=currentCategory.getId()) {
             NideshopCategory categoryChild = new NideshopCategory();
             categoryChild.setParentId(currentCategory.getId());
-            List<NideshopCategory> childs = categoryService.selectCategorysByCondition(categoryChild, 0, 0);
+            List<NideshopCategory> childs = categoryBiz.selectCategorysByCondition(categoryChild, 0, 0);
             currentCategory.setSubCategoryList(childs);
         }
 
@@ -65,14 +61,14 @@ public class CatalogContServiceImpl implements CatalogContService {
 
         NideshopCategory currentCategory = null;
         if (categoryId != 0) {
-            currentCategory = categoryService.selectCategoryById(categoryId);
+            currentCategory = categoryBiz.selectCategoryById(categoryId);
         }
 
         // 获取子分类数据
         if (null!=currentCategory&&0!=currentCategory.getId()) {
             NideshopCategory categoryChild = new NideshopCategory();
             categoryChild.setParentId(currentCategory.getId());
-            List<NideshopCategory> childs = categoryService.selectCategorysByCondition(categoryChild, 0, 0);
+            List<NideshopCategory> childs = categoryBiz.selectCategorysByCondition(categoryChild, 0, 0);
             currentCategory.setSubCategoryList(childs);
         }
 

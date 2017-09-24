@@ -71,7 +71,7 @@
             and category_id in
             <foreach item="item" collection="categoryIdList" separator=","
                      open="(" close=")" index="">
-                #{categoryId,jdbcType=INTEGER}
+                #{item}
             </foreach>
         </if>
         <if test="offset != 0 and limit != 0">

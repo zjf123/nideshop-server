@@ -1,4 +1,4 @@
-package com.hunhot.nideshop.dto;
+package com.hunhot.nideshop.utils;
 
 import com.hunhot.nideshop.entity.Appointment;
 import com.hunhot.nideshop.enums.AppointStateEnum;

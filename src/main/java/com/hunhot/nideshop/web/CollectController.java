@@ -1,7 +1,6 @@
 package com.hunhot.nideshop.web;
 
-import com.hunhot.nideshop.dto.Result;
-import com.hunhot.nideshop.service.BrandContService;
+import com.hunhot.nideshop.utils.Result;
 import com.hunhot.nideshop.service.CollectContService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.HashMap;
 
 @Controller
-@RequestMapping("/brand") // url:/模块/资源/{id}/细分 /seckill/list
+@RequestMapping("/collect") // url:/模块/资源/{id}/细分 /seckill/list
 public class CollectController {
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());

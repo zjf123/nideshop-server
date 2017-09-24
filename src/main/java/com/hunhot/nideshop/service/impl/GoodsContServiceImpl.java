@@ -1,15 +1,14 @@
 package com.hunhot.nideshop.service.impl;
 
-import com.hunhot.nideshop.dto.Result;
+import com.hunhot.nideshop.biz.GoodsBiz;
+import com.hunhot.nideshop.utils.Result;
 import com.hunhot.nideshop.entity.*;
 import com.hunhot.nideshop.service.*;
-import org.apache.commons.collections.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,13 +22,13 @@ public class GoodsContServiceImpl implements GoodsContService {
     @Autowired
     private GoodsSpecificationService goodsSpecificationService;
     @Autowired
-    private GoodsService goodsService;
+    private GoodsBiz goodsBiz;
 
     @Override
     public Result<HashMap> getIndexData() {
         Result<HashMap> result = new Result<HashMap>();
         result.setData(new HashMap());
-        result.getData().put("goodsList", goodsService.selectGoodsByCondition(new NideshopGoods(), 0, 0));
+        result.getData().put("goodsList", goodsBiz.selectGoodsByCondition(new NideshopGoods(), 0, 0));
         return result;
     }
 
@@ -55,22 +54,22 @@ public class GoodsContServiceImpl implements GoodsContService {
                 specificationList.put("specification_id",specItem.getSpecificationId());
                 specificationList.put("name",specItem.getName());
                 specificationList.put("valueList",specItem);
-
-                specificationList.push({
-                        specification_id: specItem.specification_id,
-                        name: specItem.name,
-                        valueList: [specItem]
-                });
-                hasSpecificationList[specItem.specification_id] = specItem;
-            } else {
-                for (let j = 0; j < specificationList.length; j++) {
-                    if (specificationList[j].specification_id === specItem.specification_id) {
-                        specificationList[j].valueList.push(specItem);
-                        break;
-                    }
-                }
-            }
-        }
+            }}
+//                specificationList.push({
+//                        specification_id: specItem.specification_id,
+//                        name: specItem.name,
+//                        valueList: [specItem]
+//                });
+//                hasSpecificationList[specItem.specification_id] = specItem;
+//            } else {
+//                for (let j = 0; j < specificationList.length; j++) {
+//                    if (specificationList[j].specification_id === specItem.specification_id) {
+//                        specificationList[j].valueList.push(specItem);
+//                        break;
+//                    }
+//                }
+//            }
+//        }
 
 //        const specificationList = [];
 //        const hasSpecificationList = {};

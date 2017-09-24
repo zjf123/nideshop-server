@@ -11,7 +11,7 @@ public interface AdBiz {
 
 	/**
 	 * 查询一本图书
-	 * 
+	 *
 	 * @param adPositionId
 	 * @return
 	 */

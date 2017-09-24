@@ -1,7 +1,7 @@
 package com.hunhot.nideshop.service.impl;
 
 import com.hunhot.nideshop.biz.CollectBiz;
-import com.hunhot.nideshop.dto.Result;
+import com.hunhot.nideshop.utils.Result;
 import com.hunhot.nideshop.entity.NideshopCollect;
 import com.hunhot.nideshop.service.CollectContService;
 import org.slf4j.Logger;

@@ -6,7 +6,7 @@ import com.hunhot.nideshop.biz.CategoryBiz;
 import com.hunhot.nideshop.biz.ChannelBiz;
 import com.hunhot.nideshop.biz.GoodsBiz;
 import com.hunhot.nideshop.biz.TopicBiz;
-import com.hunhot.nideshop.dto.Result;
+import com.hunhot.nideshop.utils.Result;
 import com.hunhot.nideshop.entity.NideshopBrand;
 import com.hunhot.nideshop.entity.NideshopCategory;
 import com.hunhot.nideshop.entity.NideshopGoods;
@@ -74,8 +74,8 @@ public class IndexContServiceImpl implements IndexContService {
             categoryTmp.setParentId(categoryItem.getId());
             List<Integer> childCategoryIds = categoryService.selectCategoryIdsByCondition(categoryTmp, 1, 100);
 
-            newCategoryList.put("id",category.getId());
-            newCategoryList.put("name",category.getName());
+            newCategoryList.put("id",categoryItem.getId());
+            newCategoryList.put("name",categoryItem.getName());
             if(CollectionUtils.isEmpty(childCategoryIds)){
                 newCategoryList.put("goodsList",new ArrayList<NideshopGoods>());
                 continue;

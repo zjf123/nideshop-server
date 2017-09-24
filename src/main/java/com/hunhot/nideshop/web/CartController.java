@@ -1,6 +1,6 @@
 package com.hunhot.nideshop.web;
 
-import com.hunhot.nideshop.dto.Result;
+import com.hunhot.nideshop.utils.Result;
 import com.hunhot.nideshop.service.CartContService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
